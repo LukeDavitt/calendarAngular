@@ -15,49 +15,40 @@
 //= require angular/angular
 //= require angular-route/angular-route
 //= require angular-rails-templates
+//= require angular-resource/angular-resource
 //= require_tree .
 
 var controllers, receta, recipes;
 
-receta = angular.module('receta', ['templates', 'ngRoute', 'controllers']);
+receta = angular.module('receta', ['templates', 'ngRoute', 'ngResource', 'controllers']);
 
 receta.config([
   '$routeProvider', function($routeProvider) {
     return $routeProvider.when('/', {
-      templateUrl: "index.html",
+      templateUrl: 'index.html',
       controller: 'RecipesController'
     });
   }
 ]);
 
-recipes = [
-  {
-    id: 1,
-    name: 'Baked Potato w/ Cheese'
-  }, {
-    id: 2,
-    name: 'Garlic Mashed Potatoes'
-  }, {
-    id: 3,
-    name: 'Potatoes Au Gratin'
-  }, {
-    id: 4,
-    name: 'Baked Brussel Sprouts'
-  }
-];
-
 controllers = angular.module('controllers', []);
 
-controllers.controller("RecipesController", [
-  '$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
-    var keywords;
+controllers.controller('RecipesController', [
+  '$scope', '$routeParams', '$location', '$resource', function($scope, $routeParams, $location, $resource) {
+    var Recipe, keywords;
+    keywords = void 0;
     $scope.search = function(keywords) {
-      return $location.path("/").search('keywords', keywords);
+      return $location.path('/').search('keywords', keywords);
     };
+    Recipe = $resource('/recipes/:recipeId', {
+      recipeId: "@id",
+      format: 'json'
+    });
     if ($routeParams.keywords) {
-      keywords = $routeParams.keywords.toLowerCase();
-      return $scope.recipes = recipes.filter(function(recipe) {
-        return recipe.name.toLowerCase().indexOf(keywords) !== -1;
+      return Recipe.query({
+        keywords: $routeParams.keywords
+      }, function(results) {
+        return $scope.recipes = results;
       });
     } else {
       return $scope.recipes = [];
