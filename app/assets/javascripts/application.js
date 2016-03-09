@@ -16,42 +16,32 @@
 //= require angular-route/angular-route
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
+//= require_directory .
+//= require_self
 //= require_tree .
 
-var controllers, receta, recipes;
 
-receta = angular.module('receta', ['templates', 'ngRoute', 'ngResource', 'controllers']);
+(function () {
+  'use strict';
 
-receta.config([
-  '$routeProvider', function($routeProvider) {
-    return $routeProvider.when('/', {
-      templateUrl: 'index.html',
-      controller: 'RecipesController'
-    });
-  }
-]);
+  window.app = {
+    init: function () {
+        
+      var controllers;
 
-controllers = angular.module('controllers', []);
-
-controllers.controller('RecipesController', [
-  '$scope', '$routeParams', '$location', '$resource', function($scope, $routeParams, $location, $resource) {
-    var Recipe, keywords;
-    keywords = void 0;
-    $scope.search = function(keywords) {
-      return $location.path('/').search('keywords', keywords);
-    };
-    Recipe = $resource('/recipes/:recipeId', {
-      recipeId: "@id",
-      format: 'json'
-    });
-    if ($routeParams.keywords) {
-      return Recipe.query({
-        keywords: $routeParams.keywords
-      }, function(results) {
-        return $scope.recipes = results;
-      });
-    } else {
-      return $scope.recipes = [];
+      receta.config([
+        '$routeProvider', function($routeProvider) {
+          return $routeProvider.when('/', {
+            templateUrl: 'index.html',
+            controller: 'RecipesController'
+          });
+        }
+      ]);
     }
-  }
-]);
+  };
+
+  window.receta = angular.module('receta', ['templates', 'ngRoute', 'ngResource', 'controllers']);
+
+  app.init();
+
+})();
