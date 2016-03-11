@@ -1,15 +1,18 @@
 (function(){
 
-  var controllers, recipes;
+  var recipes;
 
-  controllers = angular.module('controllers', []);
+  
 
-  controllers.controller('RecipesController', [
+  app.controllers.controller('RecipesController', [
     '$scope', '$routeParams', '$location', '$resource', function($scope, $routeParams, $location, $resource) {
       var Recipe, keywords;
       keywords = void 0;
       $scope.search = function(keywords) {
         return $location.path('/').search('keywords', keywords);
+      };
+      $scope.view = function(recipeId) {
+        return $location.path("/recipes/" + recipeId);
       };
       Recipe = $resource('/recipes/:recipeId', {
         recipeId: "@id",
@@ -26,4 +29,5 @@
       }
     }
   ]);
+
 })();

@@ -16,6 +16,7 @@
 //= require angular-route/angular-route
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
+//= require angular-flash/dist/angular-flash
 //= require_directory .
 //= require_self
 //= require_tree .
@@ -27,20 +28,28 @@
   window.app = {
     init: function () {
         
-      var controllers;
-
+    
       receta.config([
-        '$routeProvider', function($routeProvider) {
-          return $routeProvider.when('/', {
+        '$routeProvider', 'flashProvider', function($routeProvider, flashProvider) {
+         flashProvider.errorClassnames.push("alert-danger");
+         flashProvider.warnClassnames.push("alert-warning");
+         flashProvider.infoClassnames.push("alert-info");
+         flashProvider.successClassnames.push("alert-success");
+
+         $routeProvider.when('/', {
             templateUrl: 'index.html',
             controller: 'RecipesController'
+          }).when('/recipes/:recipeId', {
+            templateUrl: 'show.html',
+            controller: 'RecipeController'
           });
         }
       ]);
-    }
+    },
+    controllers: angular.module('controllers', [])
   };
 
-  window.receta = angular.module('receta', ['templates', 'ngRoute', 'ngResource', 'controllers']);
+  window.receta = angular.module('receta', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive']);
 
   app.init();
 
