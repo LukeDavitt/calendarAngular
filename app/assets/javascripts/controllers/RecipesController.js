@@ -9,11 +9,18 @@
       var Recipe, keywords;
       keywords = void 0;
       $scope.search = function(keywords) {
-        return $location.path('/').search('keywords', keywords);
+        $location.path('/').search('keywords', keywords);
       };
       $scope.view = function(recipeId) {
-        return $location.path("/recipes/" + recipeId);
+        $location.path("/recipes/" + recipeId);
       };
+      $scope.newRecipe = function() {
+        $location.path("/recipe/new");
+      };
+      $scope.edit = function(recipeId) {
+        $location.path("/recipe/edit/" + recipeId);
+      };
+
       Recipe = $resource('/recipes/:recipeId', {
         recipeId: "@id",
         format: 'json'

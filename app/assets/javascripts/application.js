@@ -39,8 +39,17 @@
          $routeProvider.when('/', {
             templateUrl: 'index.html',
             controller: 'RecipesController'
-          }).when('/recipes/:recipeId', {
+          })
+          .when('/recipes/:recipeId', {
             templateUrl: 'show.html',
+            controller: 'RecipeController'
+          })
+          .when('/recipe/new', {
+            templateUrl: 'form.html',
+            controller: 'RecipeController'
+          })
+          .when('/recipe/edit/:recipeId', {
+            templateUrl: 'form.html',
             controller: 'RecipeController'
           });
         }
