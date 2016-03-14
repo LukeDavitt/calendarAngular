@@ -1,11 +1,11 @@
 (function(){
 
-  var recipes;
+  var events;
 
   
 
   app.controllers.controller('CalendarController', [
-    '$scope', '$compile', 'uiCalendarConfig', function($scope, $compile, uiCalendarConfig) {
+    '$scope', '$compile', '$location', 'uiCalendarConfig', function($scope, $compile, $location, uiCalendarConfig) {
       //$scope.day = moment();
       var date = new Date();
       var d = date.getDate();
@@ -72,14 +72,18 @@
         }
       };
       /* add custom event*/
+      // $scope.addEvent = function() {
+      //   $scope.events.push({
+      //     title: 'Open Sesame',
+      //     start: new Date(y, m, 28),
+      //     end: new Date(y, m, 29),
+      //     className: ['openSesame']
+      //   });
+      // };
       $scope.addEvent = function() {
-        $scope.events.push({
-          title: 'Open Sesame',
-          start: new Date(y, m, 28),
-          end: new Date(y, m, 29),
-          className: ['openSesame']
-        });
+        $location.path("/events/new");
       };
+
       /* remove event */
       $scope.remove = function(index) {
         $scope.events.splice(index,1);

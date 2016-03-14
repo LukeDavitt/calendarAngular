@@ -1,1 +1,20 @@
-<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h1>Events Calendar</h1>
+			<h4>Featured Events</h4>
+			<div class="row">
+				<div class="col-md-12 events-slideshow">
+				</div>
+			</div>
+			<div class="row">
+				<button class="btn btn-primary" ng-click="addEvent()">Add Event</button>
+				<div class="col-md-12 events-list">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+		</div>
+	</div>
+</div>

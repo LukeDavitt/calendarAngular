@@ -43,15 +43,15 @@
          .when('/', {
             templateUrl: 'calendar.html',
             controller: 'CalendarController'
-          });
+          })
         //   .when('/recipes/:recipeId', {
         //     templateUrl: 'show.html',
         //     controller: 'RecipeController'
         //   })
-        //   .when('/recipe/new', {
-        //     templateUrl: 'form.html',
-        //     controller: 'RecipeController'
-        //   })
+        .when('/event/new', {
+          templateUrl: 'events/form.html',
+          controller: 'EventController'
+        });
         //   .when('/recipe/edit/:recipeId', {
         //     templateUrl: 'form.html',
         //     controller: 'RecipeController'
