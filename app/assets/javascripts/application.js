@@ -17,6 +17,9 @@
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
 //= require angular-flash/dist/angular-flash
+//= require moment/moment
+//= require fullcalendar/dist/fullcalendar
+//= require angular-ui-calendar/src/calendar
 //= require_directory .
 //= require_self
 //= require_tree .
@@ -27,38 +30,39 @@
 
   window.app = {
     init: function () {
-        
-    
-      receta.config([
+      
+      
+      calendarDemoApp.config([
         '$routeProvider', 'flashProvider', function($routeProvider, flashProvider) {
          flashProvider.errorClassnames.push("alert-danger");
          flashProvider.warnClassnames.push("alert-warning");
          flashProvider.infoClassnames.push("alert-info");
          flashProvider.successClassnames.push("alert-success");
 
-         $routeProvider.when('/', {
-            templateUrl: 'index.html',
-            controller: 'RecipesController'
-          })
-          .when('/recipes/:recipeId', {
-            templateUrl: 'show.html',
-            controller: 'RecipeController'
-          })
-          .when('/recipe/new', {
-            templateUrl: 'form.html',
-            controller: 'RecipeController'
-          })
-          .when('/recipe/edit/:recipeId', {
-            templateUrl: 'form.html',
-            controller: 'RecipeController'
+         $routeProvider
+         .when('/', {
+            templateUrl: 'calendar.html',
+            controller: 'CalendarController'
           });
+        //   .when('/recipes/:recipeId', {
+        //     templateUrl: 'show.html',
+        //     controller: 'RecipeController'
+        //   })
+        //   .when('/recipe/new', {
+        //     templateUrl: 'form.html',
+        //     controller: 'RecipeController'
+        //   })
+        //   .when('/recipe/edit/:recipeId', {
+        //     templateUrl: 'form.html',
+        //     controller: 'RecipeController'
+        //   });
         }
       ]);
     },
     controllers: angular.module('controllers', [])
   };
 
-  window.receta = angular.module('receta', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive']);
+  window.calendarDemoApp = angular.module('calendarDemoApp', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'ui.calendar' ]);
 
   app.init();
 

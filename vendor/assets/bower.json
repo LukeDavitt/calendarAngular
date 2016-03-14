@@ -5,6 +5,9 @@
     "bootstrap-sass-official": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
-    "angular-flash": "latest"
+    "angular-flash": "latest",
+    "fontawesome": "latest",
+    "fullcalendar": "latest",
+    "angular-ui-calendar": "latest"
   }
 }

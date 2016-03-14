@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sass', '3.2.19' 
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem "font-awesome-rails"
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
