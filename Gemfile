@@ -10,6 +10,7 @@ gem 'sass', '3.2.19'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem "font-awesome-rails"
+gem "paperclip", "~> 4.3"
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

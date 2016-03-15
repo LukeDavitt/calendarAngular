@@ -1,0 +1,1 @@
+json.(event, :id, :title, :description, :location, :start, :end, :logo)

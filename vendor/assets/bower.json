@@ -2,12 +2,15 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "angular": "latest",
-    "bootstrap-sass-official": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
     "angular-flash": "latest",
     "fontawesome": "latest",
     "fullcalendar": "latest",
-    "angular-ui-calendar": "latest"
+    "angular-ui-calendar": "latest",
+    "angular-material": "latest",
+    "sc-date-time": "latest",
+    "ng-file-upload": "latest",
+    "angular-slick": "latest"
   }
 }

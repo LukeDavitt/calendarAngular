@@ -16,7 +16,7 @@
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.description}">
     <label 
-      for="instructions" 
+      for="description" 
       class="col-md-2 control-label col-md-offset-2">
       Description
     </label>
@@ -28,22 +28,35 @@
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.start}">
     <label 
       for="start" 
-      class="col-md-2 control-label col-md-offset-2">
+      class="col-md-2 control-label col-md-offset-2">Start
     </label>
     <div class="col-md-5">
-      <textarea name="start" class="form-control" ng-model='event.start'>
-      </textarea>
+       <time-date-picker ng-model="event.start"></time-date-picker>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.end}">
     <label 
-      for="start" 
-      class="col-md-2 control-label col-md-offset-2">
+      for="end" 
+      class="col-md-2 control-label col-md-offset-2">End
     </label>
     <div class="col-md-5">
-      <textarea name="start" class="form-control" ng-model='event.end'>
-      </textarea>
+      <time-date-picker ng-model="event.end"></time-date-picker>
     </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.location}">
+    <label 
+      for="location" 
+      class="col-md-2 control-label col-md-offset-2">Location
+    </label>
+    <div class="col-md-5">
+      <input type="text" name="location" ng-model="event.location">
+    </div>
+  </div>
+  <div class="form-group">
+  <label for="logo" class="col-md-2 control-label col-md-offset-2">Logo</label>
+  <div class="col-md-5">
+    <input type="file" name="logo" onchange="angular.element(this).scope().uploadFile(this.files)" />
+  </div>
   </div>
   <div class="form-group">
     <div class="col-md-offset-2 col-md-3">

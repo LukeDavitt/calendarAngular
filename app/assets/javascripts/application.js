@@ -20,6 +20,14 @@
 //= require moment/moment
 //= require fullcalendar/dist/fullcalendar
 //= require angular-ui-calendar/src/calendar
+//= require angular-animate/angular-animate
+//= require angular-aria/angular-aria
+//= require angular-messages/angular-messages
+//= require angular-material/angular-material
+//= require ng-file-upload/ng-file-upload
+//= require sc-date-time/dist/sc-date-time
+//= require slick-carousel/slick/slick
+//= require angular-slick/dist/slick
 //= require_directory .
 //= require_self
 //= require_tree .
@@ -40,18 +48,18 @@
          flashProvider.successClassnames.push("alert-success");
 
          $routeProvider
-         .when('/', {
+          .when('/', {
             templateUrl: 'calendar.html',
             controller: 'CalendarController'
           })
-        //   .when('/recipes/:recipeId', {
-        //     templateUrl: 'show.html',
-        //     controller: 'RecipeController'
-        //   })
-        .when('/event/new', {
-          templateUrl: 'events/form.html',
-          controller: 'EventController'
-        });
+          .when('/events/:eventId', {
+            templateUrl: 'events/show.html',
+            controller: 'EventController'
+          })
+          .when('/event/new', {
+            templateUrl: 'events/form.html',
+            controller: 'EventController'
+          });
         //   .when('/recipe/edit/:recipeId', {
         //     templateUrl: 'form.html',
         //     controller: 'RecipeController'
@@ -62,7 +70,7 @@
     controllers: angular.module('controllers', [])
   };
 
-  window.calendarDemoApp = angular.module('calendarDemoApp', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'ui.calendar' ]);
+  window.calendarDemoApp = angular.module('calendarDemoApp', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'ui.calendar', 'ngMaterial', 'scDateTime', 'ngFileUpload','slick' ]);
 
   app.init();
 

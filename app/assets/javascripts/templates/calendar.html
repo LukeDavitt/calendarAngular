@@ -4,17 +4,18 @@
 			<h1>Events Calendar</h1>
 			<h4>Featured Events</h4>
 			<div class="row">
-				<div class="col-md-12 events-slideshow">
-				</div>
-			</div>
-			<div class="row">
-				<button class="btn btn-primary" ng-click="addEvent()">Add Event</button>
-				<div class="col-md-12 events-list">
-				</div>
+				<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1">
+				   <div ng-repeat="item in items">
+					  <span>
+					    <img ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
+					   </span>
+					   <span>{{ item.label }}</span>
+					</div>
+				</slick>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+		<!-- <div class="col-md-4">
+			<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> -->
 		</div>
 	</div>
 </div>

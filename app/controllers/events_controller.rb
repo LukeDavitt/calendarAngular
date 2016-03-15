@@ -12,14 +12,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params.require(:event).permit(:title,:description))
+    @event = Event.new(event_params)
     @event.save
     render 'show', status: 201
   end
 
    def update
     event = Event.find(params[:id])
-    event.update_attributes(params.require(:event).permit(:title,:description))
+    event.update_attributes(event_params)
     head :no_content
   end
 
@@ -28,4 +28,9 @@ class EventsController < ApplicationController
     event.destroy
     head :no_content
   end
+
+  private
+    def event_params
+      params.require(:event).permit(:title,:description, :start, :end, :location, :logo)
+    end
 end
