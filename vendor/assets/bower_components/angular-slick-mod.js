@@ -125,7 +125,7 @@ angular.module('slick', []).directive('slick', [
               }
             });
             slider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
-              console.log("hello");
+              
               if (scope.onAfterChange) {
                 scope.onAfterChange();
               }

@@ -45,6 +45,13 @@
 		button.slick-next{
 			display:none !important;
 		}
+		button{
+			border:0px;
+			margin-right:5px;
+			img{
+				height:50px;
+			}
+		}
 		.slick-dots{
 			display:inline-block;
 			list-style:none;

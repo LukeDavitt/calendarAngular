@@ -28,7 +28,7 @@
     }
 
 }(function($) {
-    'use strict';
+    //'use strict';
     var Slick = window.Slick || {};
 
     Slick = (function() {
@@ -36,7 +36,7 @@
         var instanceUid = 0;
 
         function Slick(element, settings) {
-
+            
             var _ = this,
                 dataSettings, responsiveSettings, breakpoint;
 
@@ -55,7 +55,8 @@
                 centerPadding: '50px',
                 cssEase: 'ease',
                 customPaging: function(slider, i) {
-                    return '<button type="button" data-role="none">' + (i + 1) + '</button>';
+                    
+                    return '<button type="button" data-role="none">' + _.$slides[i].querySelector(".the-image").outerHTML + '</button>';
                 },
                 dots: false,
                 dotsClass: 'slick-dots',
@@ -229,7 +230,7 @@
                 $(markup).appendTo(_.$slideTrack);
             }
         }
-
+       
         _.$slides = _.$slideTrack.children(this.options.slide);
 
         _.$slideTrack.children(this.options.slide).detach();
@@ -447,7 +448,6 @@
             i, dotString;
 
         if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
             dotString = '<ul class="' + _.options.dotsClass + '">';
 
             for (i = 0; i <= _.getDotCount(); i += 1) {
@@ -603,7 +603,6 @@
 
         unevenOffset = (_.slideCount % _.options.slidesToScroll !== 0);
         indexOffset = unevenOffset ? 0 : (_.slideCount - _.currentSlide) % _.options.slidesToScroll;
-
         switch (event.data.message) {
 
             case 'previous':
@@ -622,7 +621,7 @@
 
             case 'index':
                 var index = event.data.index === 0 ? 0 :
-                    event.data.index || $(event.target).parent().index() * _.options.slidesToScroll;
+                    event.data.index || $target.attr("id") * _.options.slidesToScroll;
 
                 _.slideHandler(_.checkNavigable(index), false, dontAnimate);
                 break;
@@ -1719,6 +1718,7 @@
 
     Slick.prototype.slideHandler = function(index,sync,dontAnimate) {
 
+        console.log("this called");
         var targetSlide, animSlide, oldSlide, slideLeft, targetLeft = null,
             _ = this;
 

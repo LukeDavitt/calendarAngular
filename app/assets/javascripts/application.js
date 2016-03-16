@@ -26,8 +26,8 @@
 //= require angular-material/angular-material
 //= require ng-file-upload/ng-file-upload
 //= require sc-date-time/dist/sc-date-time
-//= require slick-carousel/slick/slick
-//= require angular-slick/dist/slick
+//= require slick-mod
+//= require angular-slick-mod
 //= require_directory .
 //= require_self
 //= require_tree .

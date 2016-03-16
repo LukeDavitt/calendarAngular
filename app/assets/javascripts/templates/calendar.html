@@ -7,7 +7,7 @@
 				<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1">
 				   <div ng-repeat="item in items">
 					  <span>
-					    <img ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
+					    <img id="{{$index}}" class="the-image" ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
 					   </span>
 					   <span>{{ item.label }}</span>
 					</div>
