@@ -4,7 +4,7 @@
 			<h1>Events Calendar</h1>
 			<h4>Featured Events</h4>
 			
-			<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1" init-onload=true data="events">
+			<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1" init-onload=true data="calendarEvents">
 			   <div ng-repeat="item in items">
 				  <span>
 				    <img id="{{$index}}" class="the-image" ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
@@ -15,7 +15,7 @@
 
 			<md-list flex>
 		        <md-subheader class="md-no-sticky">Events For July 1</md-subheader>
-		        <md-list-item class="md-3-line" ng-repeat="item in events">
+		        <md-list-item class="md-3-line" ng-repeat="item in calendarEvents">
 		          <img ng-src="{{item.logo}}" class="md-avatar" alt="{{item.title}}" />
 		          <div class="md-list-item-text" layout="column">
 		            <h3>{{ item.title }}</h3>
@@ -26,7 +26,7 @@
 		    </md-list>
 		</div>
 		<div flex="33">
-			<!-- <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> -->
+			 <uib-datepicker ng-model="events" class="well well-sm" datepicker-options="inlineOptions"></uib-datepicker>
 		</div> 
 	</div>
 </div>

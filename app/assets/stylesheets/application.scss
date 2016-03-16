@@ -17,10 +17,11 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "fontawesome/scss/font-awesome";
-@import "fullcalendar/dist/fullcalendar.css";
 @import "angular-material/angular-material";
 @import "sc-date-time/dist/sc-date-time.css";
 @import "slick-carousel/slick/slick";
+@import "angular-ui-bootstrap/src/position/position.css";
+@import "angular-ui-bootstrap/src/datepicker/datepicker.css";
 
 .home{
 	padding:5%;

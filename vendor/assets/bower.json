@@ -6,11 +6,11 @@
     "angular-resource": "latest",
     "angular-flash": "latest",
     "fontawesome": "latest",
-    "fullcalendar": "latest",
-    "angular-ui-calendar": "latest",
+    "angular-bootstrap-calendar": "latest",
     "angular-material": "latest",
     "sc-date-time": "latest",
     "ng-file-upload": "latest",
-    "angular-slick": "latest"
+    "angular-slick": "latest",
+    "angular-bootstrap": "latest"
   }
 }

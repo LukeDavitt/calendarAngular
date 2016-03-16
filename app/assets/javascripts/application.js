@@ -18,8 +18,6 @@
 //= require angular-resource/angular-resource
 //= require angular-flash/dist/angular-flash
 //= require moment/moment
-//= require fullcalendar/dist/fullcalendar
-//= require angular-ui-calendar/src/calendar
 //= require angular-animate/angular-animate
 //= require angular-aria/angular-aria
 //= require angular-messages/angular-messages
@@ -28,6 +26,10 @@
 //= require sc-date-time/dist/sc-date-time
 //= require slick-mod
 //= require angular-slick-mod
+//= require angular-ui-bootstrap/src/dateparser/dateparser
+//= require angular-ui-bootstrap/src/datepicker/datepicker
+//= require angular-ui-bootstrap/src/isClass/isClass
+//= require angular-ui-bootstrap/src/position/position
 //= require_directory .
 //= require_self
 //= require_tree .
@@ -64,13 +66,15 @@
         //     templateUrl: 'form.html',
         //     controller: 'RecipeController'
         //   });
+            moment.locale("dd");
+        
         }
       ]);
     },
     controllers: angular.module('controllers', [])
   };
 
-  window.calendarDemoApp = angular.module('calendarDemoApp', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'ui.calendar', 'ngMaterial', 'scDateTime', 'ngFileUpload','slick' ]);
+  window.calendarDemoApp = angular.module('calendarDemoApp', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'ngMaterial', 'scDateTime', 'ngFileUpload','slick', 'ui.bootstrap.datepicker']);
 
   app.init();
 
