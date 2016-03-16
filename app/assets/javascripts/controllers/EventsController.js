@@ -5,22 +5,26 @@
   
 
   app.controllers.controller('CalendarController', [
-    '$scope', '$compile', '$location', 'uiCalendarConfig', function($scope, $compile, $location, uiCalendarConfig) {
+    '$scope', '$compile', '$location', '$http', 'uiCalendarConfig', function($scope, $compile, $location, $http, uiCalendarConfig) {
       //$scope.day = moment();
-      $scope.items = [
-                        {
-                          imgSrc: '/images/original/missing.png',
-                          label: 'event 1'
-                        },
-                        {
-                          imgSrc: '/images/original/missing.png',
-                          label: 'event 2'
-                        },
-                        {
-                          imgSrc: '/images/original/missing.png',
-                          label: 'event 3'
-                        }
-                      ];
+    $http({
+        method: 'GET',
+        url: '/events.json',
+        }).then(function successCallback(response) {
+            $scope.events = response.data;
+            $scope.items = [];
+            
+            response.data.forEach(function(event){
+                  var item = {};
+                  item.imgSrc = event.logo;
+                  item.label = event.title;
+                  $scope.items.push(item);
+            });
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+      });
+
       // var date = new Date();
       // var d = date.getDate();
       // var m = date.getMonth();

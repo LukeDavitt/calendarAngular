@@ -4,15 +4,26 @@
 			<h1>Events Calendar</h1>
 			<h4>Featured Events</h4>
 			
-				<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1">
-				   <div ng-repeat="item in items">
-					  <span>
-					    <img id="{{$index}}" class="the-image" ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
-					   </span>
-					   <span>{{ item.label }}</span>
-					</div>
-				</slick>
-			
+			<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1">
+			   <div ng-repeat="item in items">
+				  <span>
+				    <img id="{{$index}}" class="the-image" ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
+				   </span>
+				   <span>{{ item.label }}</span>
+				</div>
+			</slick>
+
+			<md-list flex>
+		        <md-subheader class="md-no-sticky">Events For July 1</md-subheader>
+		        <md-list-item class="md-3-line" ng-repeat="item in events">
+		          <img ng-src="{{item.logo}}" class="md-avatar" alt="{{item.title}}" />
+		          <div class="md-list-item-text" layout="column">
+		            <h3>{{ item.title }}</h3>
+		            <h4>{{ item.location }}</h4>
+		            <p>{{ item.description }}</p>
+		          </div>
+		        </md-list-item>
+		    </md-list>
 		</div>
 		<div flex="33">
 			<!-- <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> -->
