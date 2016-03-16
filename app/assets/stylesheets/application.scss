@@ -21,3 +21,36 @@
 @import "angular-material/angular-material";
 @import "sc-date-time/dist/sc-date-time.css";
 @import "slick-carousel/slick/slick";
+
+.home{
+	padding:5%;
+	slick{
+		height:300px;
+		.slick-list{
+			height:200px;
+			.ng-binding{
+				position:absolute;
+				top:172px;
+			}
+		}
+		.slick-track{
+			height:300px;
+		}
+		img{
+			height:200px;
+		}
+		button.slick-prev{
+			display:none !important;
+		}
+		button.slick-next{
+			display:none !important;
+		}
+		.slick-dots{
+			display:inline-block;
+			list-style:none;
+			li{
+				display:inline-block;
+			}
+		}
+	}
+}

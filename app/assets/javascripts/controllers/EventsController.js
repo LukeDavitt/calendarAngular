@@ -10,15 +10,15 @@
       $scope.items = [
                         {
                           imgSrc: '/images/original/missing.png',
-                          label: 'label 1'
+                          label: 'event 1'
                         },
                         {
                           imgSrc: '/images/original/missing.png',
-                          label: 'label 2'
+                          label: 'event 2'
                         },
                         {
                           imgSrc: '/images/original/missing.png',
-                          label: 'label 3'
+                          label: 'event 3'
                         }
                       ];
       // var date = new Date();

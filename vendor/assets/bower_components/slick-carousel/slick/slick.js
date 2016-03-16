@@ -28,7 +28,7 @@
     }
 
 }(function($) {
-    'use strict';
+    //'use strict';
     var Slick = window.Slick || {};
 
     Slick = (function() {
@@ -205,7 +205,10 @@
     Slick.prototype.addSlide = Slick.prototype.slickAdd = function(markup, index, addBefore) {
 
         var _ = this;
-
+        m = markup;
+        i = index;
+        alert();
+        debugger;
         if (typeof(index) === 'boolean') {
             addBefore = index;
             index = null;
