@@ -7,7 +7,7 @@
   app.controllers.controller('CalendarController', [
     '$scope', '$compile', '$location', '$http', 'uiCalendarConfig', function($scope, $compile, $location, $http, uiCalendarConfig) {
       //$scope.day = moment();
-    $http({
+      $http({
         method: 'GET',
         url: '/events.json',
         }).then(function successCallback(response) {
@@ -20,6 +20,7 @@
                   item.label = event.title;
                   $scope.items.push(item);
             });
+            $("slick").init();
         }, function errorCallback(response) {
           // called asynchronously if an error occurs
           // or server returns response with an error status.

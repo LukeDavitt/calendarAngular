@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 angular.module('slick', []).directive('slick', [
   '$timeout',
   function ($timeout) {
@@ -66,6 +66,8 @@ angular.module('slick', []).directive('slick', [
           return $timeout(function () {
             var currentIndex, customPaging, slider;
             slider = $(element);
+            f = slider;
+            console.log(slider);
             if (scope.currentIndex != null) {
               currentIndex = scope.currentIndex;
             }
