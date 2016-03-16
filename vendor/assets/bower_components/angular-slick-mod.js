@@ -66,8 +66,6 @@ angular.module('slick', []).directive('slick', [
           return $timeout(function () {
             var currentIndex, customPaging, slider;
             slider = $(element);
-            f = slider;
-            console.log(slider);
             if (scope.currentIndex != null) {
               currentIndex = scope.currentIndex;
             }

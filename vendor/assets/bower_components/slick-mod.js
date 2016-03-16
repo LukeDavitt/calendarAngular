@@ -1718,7 +1718,6 @@
 
     Slick.prototype.slideHandler = function(index,sync,dontAnimate) {
 
-        console.log("this called");
         var targetSlide, animSlide, oldSlide, slideLeft, targetLeft = null,
             _ = this;
 
