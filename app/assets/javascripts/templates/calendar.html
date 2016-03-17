@@ -26,7 +26,17 @@
 		    </md-list>
 		</div>
 		<div flex="33">
-			 <uib-datepicker ng-model="events" class="well well-sm" datepicker-options="inlineOptions"></uib-datepicker>
-		</div> 
+			<div layout="row">
+				<md-select ng-model="widgetView" ng-change="pickView(widgetView)" class="calendar-select">
+					<md-option ng-value="t.title" data-ng-repeat="t in view">{{ t.title }}</md-option>
+			    </md-select>
+			</div>
+
+		    <div style="display:inline-block; min-height:290px;">
+		      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptionsMonth" ng-show="monthView"></uib-datepicker>
+		      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptionsYear" ng-show="yearView"></uib-datepicker> 
+		      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptionsDay" ng-show="dayView"></uib-datepicker> 
+		    </div>
+    	</div> 
 	</div>
 </div>

@@ -23,45 +23,38 @@
 @import "angular-ui-bootstrap/src/position/position.css";
 @import "angular-ui-bootstrap/src/datepicker/datepicker.css";
 
-.home{
-	padding:5%;
-	slick{
-		height:300px;
-		.slick-list{
-			height:200px;
-			.ng-binding{
-				position:absolute;
-				top:172px;
-			}
-		}
-		.slick-track{
-			height:300px;
-		}
-		img{
-			height:200px;
-		}
-		button.slick-prev{
-			display:none !important;
-		}
-		button.slick-next{
-			display:none !important;
-		}
-		button{
-			border:0px;
-			margin-right:5px;
-			img{
-				height:50px;
-			}
-		}
-		button{
-			outline:none !important;
-		}
-		.slick-dots{
-			display:inline-block;
-			list-style:none;
-			li{
-				display:inline-block;
-			}
-		}
-	}
+
+// CALENDAR SCSS
+
+.glyphicon-chevron-right::before, .glyphicon-chevron-left::before{
+	content:"";
+}
+
+.uib-right{
+	background:image-url('chevron-right.svg') no-repeat;
+	background-position:50% 50%;
+	background-color:white;
+}
+
+.uib-left{
+	background:image-url('chevron-left.svg') no-repeat;
+	background-position:50% 50%;
+	background-color:white;
+	padding-left:20px;
+}
+
+.full button span {
+	background-color: limegreen;
+	border-radius: 32px;
+	color: black;
+}
+
+.partially button span {
+	background-color: orange;
+	border-radius: 32px;
+	color: black;
+}
+
+.calendar-view-picker{
+	background:whitesmoke;
 }
