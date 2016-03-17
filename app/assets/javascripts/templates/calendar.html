@@ -14,7 +14,7 @@
 			</slick>
 
 			<md-list flex>
-		        <md-subheader class="md-no-sticky">Events For July 1</md-subheader>
+		        <md-subheader class="md-no-sticky">Events For {{calendarDate()}}</md-subheader>
 		        <md-list-item class="md-3-line" ng-repeat="item in calendarEvents">
 		          <img ng-src="{{item.logo}}" class="md-avatar" alt="{{item.title}}" />
 		          <div class="md-list-item-text" layout="column">

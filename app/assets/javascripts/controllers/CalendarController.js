@@ -137,14 +137,16 @@
         }
         return '';
       }
-       $scope.view = [{
+       $scope.view = [
+        {
+          "id": "day",
+          "title": "Day"
+        },
+        {
           "id": "month",
           "title": "Month"
         }, 
         {
-          "id": "day",
-          "title": "Day"
-        }, {
           "id": "year",
           "title": "Year"
         }];
@@ -178,7 +180,10 @@
               break;
           }
         };
-
+        s = $scope;
+        $scope.calendarDate = function() {
+          return moment($scope.dt).format("MMMM DD");
+        };
     }
     
       
