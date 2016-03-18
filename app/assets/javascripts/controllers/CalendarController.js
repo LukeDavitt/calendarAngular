@@ -4,12 +4,12 @@
   
 
   app.controllers.controller('CalendarController', [
-    '$scope', '$http', function($scope, $http) {
+    '$scope', '$http', '$resource', function($scope, $http, $resource) {
       $http({
         method: 'GET',
         url: '/events.json',
         }).then(function successCallback(response) {
-            $scope.calendarEvents = response.data;
+            $scope.featuredEvents = response.data;
             $scope.items = [];
             
             response.data.forEach(function(event){
@@ -18,7 +18,7 @@
                   item.label = event.title;
                   $scope.items.push(item);
                   item = {};
-                  item.date = new Date(event.start);
+                  item.date = moment(event.start).format("MMMM-DD-YYYY");
                   item.status = "partially";
                   $scope.events.push(item);
             });
@@ -26,7 +26,14 @@
           // called asynchronously if an error occurs
           // or server returns response with an error status.
       });
-      
+      var Event;
+      Event = $resource('/events?datePicked=:datePicked', {
+        format: 'json'
+      });
+      // Event.get({datePicked:$scope.dt},function(events){
+      //   console.log('events');
+      //   console.log(events);
+      // });
 
 
       $scope.today = function() {
@@ -40,21 +47,21 @@
 
       $scope.inlineOptionsDay = {
         customClass: getDayClass,
-        minDate: new Date(),
+        minDate: new Date(2010),
         showWeeks: false,
         datepickerMode: "day"
       };
 
       $scope.inlineOptionsMonth = {
         customClass: getDayClass,
-        minDate: new Date(),
+        minDate: new Date(2010),
         showWeeks: false,
         datepickerMode: "month"
       };
 
       $scope.inlineOptionsYear = {
         customClass: getDayClass,
-        minDate: new Date(),
+        minDate: new Date(2010),
         showWeeks: false,
         datepickerMode: "year"
       };
@@ -63,7 +70,7 @@
         //dateDisabled: disabled,
         formatYear: 'yy',
         maxDate: new Date(2020, 5, 22),
-        minDate: new Date(),
+        minDate: new Date(2010),
         startingDay: 1
       };
 
@@ -180,10 +187,25 @@
               break;
           }
         };
-        s = $scope;
         $scope.calendarDate = function() {
           return moment($scope.dt).format("MMMM DD");
         };
+        Event.query({
+          datePicked: $scope.dt
+        }, function(results) {
+          $scope.calendarEvents = results;
+        });
+
+        $scope.pickDate = function(date) {
+          
+          Event.query({
+              datePicked: $scope.dt
+            }, function(results) {
+              $scope.calendarEvents = results;
+            });
+        };
+
+       
     }
     
       

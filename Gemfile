@@ -20,5 +20,8 @@ group :test, :development do
   gem "selenium-webdriver"
   gem "guard-livereload"
   gem "rack-livereload"
+  gem "pry-rails"
+  gem "pry-nav"
+  gem "pry-remote"
 end
 

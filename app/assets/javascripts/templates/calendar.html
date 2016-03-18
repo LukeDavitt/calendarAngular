@@ -4,7 +4,7 @@
 			<h1>Events Calendar</h1>
 			<h4>Featured Events</h4>
 			
-			<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1" init-onload=true data="calendarEvents">
+			<slick dots="true" infinite="false" speed="300" slides-to-show="1" touch-move="false" slides-to-scroll="1" init-onload=true data="featuredEvents">
 			   <div ng-repeat="item in items">
 				  <span>
 				    <img id="{{$index}}" class="the-image" ng-src="{{ item.imgSrc }}" alt="{{ item.label}}">
@@ -33,9 +33,9 @@
 			</div>
 
 		    <div style="display:inline-block; min-height:290px;">
-		      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptionsMonth" ng-show="monthView"></uib-datepicker>
-		      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptionsYear" ng-show="yearView"></uib-datepicker> 
-		      <uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="inlineOptionsDay" ng-show="dayView"></uib-datepicker> 
+		      <uib-datepicker ng-model="dt" ng-change="pickDate(dt)" class="well well-sm" datepicker-options="inlineOptionsMonth" ng-show="monthView"></uib-datepicker>
+		      <uib-datepicker ng-model="dt" ng-change="pickDate(dt)" class="well well-sm" datepicker-options="inlineOptionsYear" ng-show="yearView"></uib-datepicker> 
+		      <uib-datepicker ng-model="dt" class="well well-sm" ng-change="pickDate(dt)" datepicker-options="inlineOptionsDay" ng-show="dayView"></uib-datepicker> 
 		    </div>
     	</div> 
 	</div>
