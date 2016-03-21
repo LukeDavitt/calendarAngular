@@ -1,5 +1,5 @@
 <div class="home">
-	<div layout="row">
+	<div layout="row" layout-sm="column" layout-xs="column">
 		<div flex="66">
 			<h1>Events Calendar</h1>
 			<h4>Featured Events</h4>
@@ -26,7 +26,7 @@
 		    </md-list>
 		</div>
 		<div flex="33">
-			<div layout="row">
+			<div layout="row" layout-sm="column" layout-xs="column">
 				<md-select ng-model="widgetView" ng-change="pickView(widgetView)" class="calendar-select">
 					<md-option ng-value="t.title" data-ng-repeat="t in view">{{ t.title }}</md-option>
 			    </md-select>
