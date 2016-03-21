@@ -2,9 +2,9 @@ class EventsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    if params[:datePicked]
-      filter_date = DateTime.parse(params[:datePicked]).to_date
-      @events = Event.where('extract(year from start) = ? and extract(month from start) = ? and extract(day from start) = ?', filter_date.year, filter_date.month, filter_date.day)
+    if params[:datePicked] && params[:utcOffset]
+      filter_date_start = DateTime.parse(params[:datePicked]) + (params[:utcOffset].to_i/1440.0)
+      @events = Event.where("start_time >= ? and start_time <=  ?", filter_date_start, filter_date_start.advance(:hours => 24))
     else
       @events = Event.all
     end

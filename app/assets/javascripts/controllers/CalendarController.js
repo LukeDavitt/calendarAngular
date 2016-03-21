@@ -18,7 +18,7 @@
                   item.label = event.title;
                   $scope.items.push(item);
                   item = {};
-                  item.date = moment(event.start).format("MMMM-DD-YYYY");
+                  item.date = moment(event.start_time).format("MMMM-DD-YYYY");
                   item.status = "partially";
                   $scope.events.push(item);
             });
@@ -191,7 +191,8 @@
           return moment($scope.dt).format("MMMM DD");
         };
         Event.query({
-          datePicked: $scope.dt
+          datePicked: $scope.dt,
+          utcOffset: moment().utcOffset(),
         }, function(results) {
           $scope.calendarEvents = results;
         });
@@ -199,7 +200,8 @@
         $scope.pickDate = function(date) {
           
           Event.query({
-              datePicked: $scope.dt
+              datePicked: $scope.dt,
+              utcOffset: moment().utcOffset(),
             }, function(results) {
               $scope.calendarEvents = results;
             });

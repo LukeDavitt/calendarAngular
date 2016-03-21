@@ -41,15 +41,25 @@
   window.app = {
     init: function () {
       
+      // $rootScope.$on(AuthEvents.notAuthorized, function() {
+      //   alert("huh");
+      // });
       
+
       calendarDemoApp.config([
-        '$routeProvider', 'flashProvider', function($routeProvider, flashProvider) {
+        '$routeProvider', 'flashProvider', '$httpProvider', function($routeProvider, flashProvider, $httpProvider) {
          flashProvider.errorClassnames.push("alert-danger");
          flashProvider.warnClassnames.push("alert-warning");
          flashProvider.infoClassnames.push("alert-info");
          flashProvider.successClassnames.push("alert-success");
 
+         
+
          $routeProvider
+          //  .when('/', {
+          //   templateUrl: 'login.html',
+          //   controller: 'LoginController'
+          // })
           .when('/', {
             templateUrl: 'calendar.html',
             controller: 'CalendarController'
@@ -71,9 +81,11 @@
         }
       ]);
     },
-    controllers: angular.module('controllers', [])
+    controllers: angular.module('controllers', []),
+    factories: angular.module('factories', [])
   };
 
+  //alert("hello?");
   window.calendarDemoApp = angular.module('calendarDemoApp', ['templates', 'ngRoute', 'ngResource', 'controllers', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'ngMaterial', 'scDateTime', 'ngFileUpload','slick', 'ui.bootstrap.datepicker']);
 
   app.init();
